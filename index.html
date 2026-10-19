@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabores Patrios - Gastronomía Argentina</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="encabezado">
+    <a href="#inicio" class="logo">🇦🇷 Sabores Patrios</a>
+    <button id="btn-menu" class="btn-menu" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <nav id="menu" class="menu">
+      <a href="#catalogo">Menú</a>
+      <a href="#galeria">Galería</a>
+      <a href="#testimonios">Opiniones</a>
+      <a href="#faq">Preguntas</a>
+      <a href="#presupuesto">Presupuesto</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <button id="btn-tema" class="btn-tema" aria-label="Cambiar tema">🌙</button>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <h1 id="saludo">¡Hola!</h1>
+      <p>La verdadera tradición argentina en tu mesa. Carnes, empanadas caseras y postres tradicionales.</p>
+      <div class="promo">
+        <p>🔥 <strong>Descuento patrio de fin de semana</strong> termina en:</p>
+        <div id="cuenta-regresiva" class="cuenta">Cargando...</div>
+      </div>
+    </section>
+
+    <section id="catalogo" class="seccion">
+      <h2>Nuestro Menú Tradicional</h2>
+      <div class="herramientas">
+        <div id="filtros" class="filtros">
+          <button class="filtro activo" data-categoria="todos">Todos</button>
+          <button class="filtro" data-categoria="parrilla">Parrilla</button>
+          <button class="filtro" data-categoria="minutas">Minutas & Salados</button>
+          <button class="filtro" data-categoria="bebidas">Bebidas & Postres</button>
+        </div>
+        <input type="search" id="buscador" placeholder="🔍 Buscar plato...">
+      </div>
+      <div id="lista-productos" class="grilla-productos"></div>
+      <p id="sin-resultados" class="oculto">No encontramos platos con esa búsqueda 🥩</p>
+    </section>
+
+    <section id="carrito" class="seccion carrito">
+      <h2>🛒 Tu Pedido (<span id="carrito-contador">0</span>)</h2>
+      <ul id="carrito-items" class="carrito-items"></ul>
+      <p class="total">Total: <strong id="carrito-total">$0</strong></p>
+      <div class="botones">
+        <button id="btn-vaciar" class="btn secundario">Vaciar pedido</button>
+        <button id="btn-whatsapp" class="btn whatsapp">Pedir por WhatsApp</button>
+      </div>
+    </section>
+
+    <section id="galeria" class="seccion">
+      <h2>Nuestra Cocina</h2>
+      <p>Tocá una foto para agrandarla.</p>
+      <div class="galeria">
+        <img class="miniatura" alt="Asado Criollo" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400'><rect width='100%' height='100%' fill='%238B0000'/><text x='50%' y='55%' fill='%23ffffff' font-size='40' text-anchor='middle'>Asado Criollo</text></svg>">
+        <img class="miniatura" alt="Empanadas Tucumanas" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400'><rect width='100%' height='100%' fill='%23D2691E'/><text x='50%' y='55%' fill='%23ffffff' font-size='40' text-anchor='middle'>Empanadas</text></svg>">
+        <img class="miniatura" alt="Milanesa Napolitana" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400'><rect width='100%' height='100%' fill='%23CD853F'/><text x='50%' y='55%' fill='%23ffffff' font-size='40' text-anchor='middle'>Milanesa Napolitana</text></svg>">
+        <img class="miniatura" alt="Flan con Dulce de Leche" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400'><rect width='100%' height='100%' fill='%23F4A460'/><text x='50%' y='55%' fill='%23ffffff' font-size='40' text-anchor='middle'>Flan con Dulce</text></svg>">
+      </div>
+      <div id="lightbox" class="lightbox oculto">
+        <span class="lightbox-cerrar">×</span>
+        <img id="lightbox-img" alt="">
+      </div>
+    </section>
+
+    <section id="testimonios" class="seccion">
+      <h2>Lo que dicen nuestros comensales</h2>
+      <div id="carrusel" class="carrusel">
+        <p id="carrusel-texto" class="carrusel-texto"></p>
+        <p id="carrusel-autor" class="carrusel-autor"></p>
+      </div>
+    </section>
+
+    <section id="faq" class="seccion">
+      <h2>Preguntas Frecuentes</h2>
+      <div class="faq">
+        <div class="faq-item">
+          <button class="faq-pregunta">¿Hacen envíos a domicilio? <span>+</span></button>
+          <div class="faq-respuesta">Sí, realizamos envíos a toda la zona con cadetería propia.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-pregunta">¿Con cuánta anticipación debo encargar una parrillada familiar? <span>+</span></button>
+          <div class="faq-respuesta">Recomendamos realizar el pedido con al menos 2 horas de anticipación.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-pregunta">¿Qué medios de pago aceptan? <span>+</span></button>
+          <div class="faq-respuesta">Efectivo, transferencia bancaria, tarjetas de débito y Mercado Pago.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="presupuesto" class="seccion">
+      <h2>Calculá tu Presupuesto para Eventos</h2>
+      <p>Descuentos especiales: 6 o más porciones tienen 10% de descuento; 12 o más tienen 15%.</p>
+      <form id="form-presupuesto" class="formulario">
+        <label for="pres-producto">Plato o Menú</label>
+        <select id="pres-producto"></select>
+        <label for="pres-cantidad">Cantidad de porciones</label>
+        <input type="number" id="pres-cantidad" min="1" value="1">
+        <button type="submit" class="btn">Calcular Presupuesto</button>
+      </form>
+      <div id="pres-resultado" class="resultado"></div>
+    </section>
+
+    <section id="contacto" class="seccion">
+      <h2>Reservas & Contacto</h2>
+      <form id="form-contacto" class="formulario" novalidate>
+        <label for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" placeholder="Tu nombre">
+        <small class="error" id="error-nombre"></small>
+
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" placeholder="tuemail@ejemplo.com">
+        <small class="error" id="error-email"></small>
+
+        <label for="mensaje">Consulta o reserva</label>
+        <textarea id="mensaje" rows="4" placeholder="Escribí tu consulta o detalle de reserva"></textarea>
+        <small class="error" id="error-mensaje"></small>
+
+        <button type="submit" class="btn">Enviar Consulta</button>
+        <p id="form-exito" class="exito oculto">✅ ¡Mensaje enviado con éxito! Te responderemos pronto.</p>
+      </form>
+    </section>
+  </main>
+
+  <button id="btn-arriba" class="btn-arriba oculto" aria-label="Volver arriba">⬆</button>
+
+  <footer class="footer">
+    <p>© <span id="anio"></span> Sabores Patrios. Todos los derechos reservados.</p>
+    <p><strong>TP realizado por Tadeo Scolari y Tomas Birollo</strong></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
