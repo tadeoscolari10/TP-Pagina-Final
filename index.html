@@ -1,3 +1,4 @@
+HTML
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,6 +14,7 @@
     <button id="btn-menu" class="btn-menu" aria-label="Abrir menú" aria-expanded="false">☰</button>
     <nav id="menu" class="menu">
       <a href="#catalogo">Menú</a>
+      <a href="#reconocer">Reconocer 🤖</a>
       <a href="#galeria">Galería</a>
       <a href="#testimonios">Opiniones</a>
       <a href="#faq">Preguntas</a>
@@ -45,6 +47,38 @@
       </div>
       <div id="lista-productos" class="grilla-productos"></div>
       <p id="sin-resultados" class="oculto">No encontramos platos con esa búsqueda 🥩</p>
+    </section>
+
+    <!-- ============ NIVEL 5: RECONOCEDOR CON IA ============ -->
+    <section id="reconocer" class="seccion">
+      <h2>🤖 Reconocé tu producto</h2>
+      <p>Mostrale un plato o bebida de Sabores Patrios a la cámara o subí una foto: nuestra IA te dice qué es, cuánto cuesta y lo podés sumar a tu pedido.</p>
+
+      <div class="ia">
+        <div class="ia-panel">
+          <div id="ia-visor" class="ia-visor">
+            <span class="ia-visor-emoji">📷</span>
+          </div>
+          <div class="botones">
+            <button id="btn-camara" class="btn" type="button">📷 Usar cámara</button>
+            <button id="btn-foto" class="btn secundario" type="button">🖼️ Subir foto</button>
+            <input type="file" id="ia-archivo" accept="image/*" class="oculto">
+          </div>
+          <div id="ia-demo" class="ia-demo"></div>
+          <p id="ia-estado" class="ia-estado">Cargando…</p>
+        </div>
+
+        <div class="ia-panel">
+          <h3 class="ia-subtitulo">¿Qué tan segura está la IA?</h3>
+          <div id="ia-barras" class="ia-barras"></div>
+          <div id="ia-resultado" class="ia-resultado"></div>
+        </div>
+      </div>
+
+      <details class="ia-como">
+        <summary>¿Cómo funciona?</summary>
+        <p>En Sabores Patrios entrenamos un modelo de inteligencia artificial con Teachable Machine usando fotos de nuestros platos y bebidas. Cuando acercás una imagen o usás la cámara, la red neuronal compara el patrón visual con cada clase entrenada, muestra el porcentaje de coincidencia y, si supera el 80% de confianza, te permite sumarlo directo al pedido.</p>
+      </details>
     </section>
 
     <section id="carrito" class="seccion carrito">
@@ -139,6 +173,11 @@
     <p><strong>TP realizado por Tadeo Scolari y Tomas Birollo</strong></p>
   </footer>
 
+  <!-- Librerías de TensorFlow.js y Teachable Machine -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8.3/dist/teachablemachine-image.min.js"></script>
   <script src="script.js"></script>
+  <!-- ia.js va DESPUÉS de script.js porque usa sus funciones -->
+  <script src="ia.js"></script>
 </body>
 </html>

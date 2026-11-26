@@ -1,3 +1,4 @@
+CSS
 :root {
   --fondo: #fff8f3;
   --fondo-tarjeta: #ffffff;
@@ -240,3 +241,115 @@ html { scroll-behavior: smooth; }
 }
 
 .footer { text-align: center; padding: 24px; border-top: 1px solid var(--borde); display: flex; flex-direction: column; gap: 8px; }
+
+/* ============ NIVEL 5: RECONOCEDOR CON IA ============ */
+.ia {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 16px;
+}
+@media (max-width: 700px) {
+  .ia { grid-template-columns: 1fr; }
+}
+
+.ia-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  background: var(--fondo-tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.ia-visor {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  max-width: 320px;
+  align-self: center;
+  border-radius: 10px;
+  background: var(--secundario);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.ia-visor canvas, .ia-visor img { width: 100%; height: 100%; object-fit: cover; }
+.ia-visor-emoji { font-size: 6rem; }
+
+.ia-estado { font-size: 0.9rem; opacity: 0.8; }
+
+.ia-demo { display: flex; flex-wrap: wrap; gap: 8px; }
+.ia-demo:empty { display: none; }
+.ia-muestra {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid var(--borde);
+  border-radius: 20px;
+  background: var(--fondo);
+  color: var(--texto);
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+.ia-muestra .emoji { font-size: 1.3rem; }
+.ia-muestra.activo { border-color: var(--principal); color: var(--principal); font-weight: bold; }
+
+.ia-subtitulo { font-size: 1rem; }
+.ia-barras { display: flex; flex-direction: column; gap: 8px; }
+.ia-fila {
+  display: grid;
+  grid-template-columns: minmax(0, 11em) 1fr 3.2em;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+.ia-nombre { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ia-pista { height: 12px; background: var(--secundario); border-radius: 6px; overflow: hidden; }
+.ia-relleno {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--borde);
+  border-radius: 6px;
+  transition: width 0.4s;
+}
+.ia-fila.ganadora .ia-relleno { background: var(--principal); }
+.ia-fila.ganadora .ia-nombre { font-weight: bold; }
+.ia-porcentaje { text-align: right; font-variant-numeric: tabular-nums; }
+
+.ia-resultado:empty { display: none; }
+.ia-tarjeta {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  border-top: 1px solid var(--borde);
+  padding-top: 14px;
+}
+.ia-tarjeta .emoji { font-size: 3rem; line-height: 1; }
+.ia-tarjeta .descripcion { font-size: 0.9rem; opacity: 0.8; }
+.ia-tarjeta .precio { font-weight: bold; color: var(--principal); margin: 6px 0 10px; }
+.ia-etiqueta { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.7; }
+.ia-aviso { border-top: 1px solid var(--borde); padding-top: 14px; }
+
+.ia-como { margin-top: 16px; }
+.ia-como summary { cursor: pointer; color: var(--principal); font-weight: bold; }
+.ia-como p { margin-top: 8px; max-width: 65ch; }
+
+.ia-resenas { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--borde); }
+.ia-resenas-cabecera { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 0.95rem; }
+.estrellas { color: #e8a317; letter-spacing: 0.05em; }
+.ia-ejemplo {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: var(--secundario);
+}
+.ia-resena { background: var(--fondo); border-radius: 10px; padding: 10px 12px; font-size: 0.9rem; }
+.ia-resena p { margin: 4px 0; font-style: italic; }
+.ia-resena cite { font-style: normal; font-weight: bold; color: var(--principal); font-size: 0.85rem; }
